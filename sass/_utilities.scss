@@ -1,0 +1,118 @@
+// Importing variables
+@import 'variables';
+
+// Reset
+*
+{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+// Default stylings
+a
+{
+    text-decoration:none;
+    color:$light-color;
+}
+
+ul
+{
+    list-style:none;
+}
+
+h1,h2,h3,h4,h5,h6
+{
+    font-family:$primary-font;
+    padding-bottom:0.6rem;
+    text-transform:uppercase;
+}
+
+p
+{
+    padding-bottom:0.6rem;
+}
+// Predefined classes
+// Headings
+.head
+{
+    &-1
+    {   
+        font-size:2rem;
+    }
+    &-2
+    {
+        font-size:1.5rem;
+    }
+    &-3
+    {
+        font-size:1rem;
+    }
+}
+
+// Paragraphs
+.lead
+{
+    &-1
+    {
+        font-size:1rem;
+    }
+    &-2
+    {
+        font-size:0.8rem;
+    }
+    &-3
+    {
+        font-size:0.6rem;
+    }
+}
+
+// Colors
+.primary{color:$primary-color;}
+.dark{color:$dark-color;}
+.med{color:$med-color;}
+.semi-med{color:$semi-med-color;}
+.light{color:$light-color;}
+
+// Background colors
+.bg
+{
+    &-primary{background-color:$primary-color;}
+    &-dark{background-color:$dark-color;}
+    &-med{background-color:$med-color;}
+    &-semi-med{background-color:$semi-med-color;}
+    &-light{background-color:$light-color;}
+
+}
+
+// Paddings
+.py
+{
+    &-1{padding:1rem 0;}
+    &-2{padding:2rem 0;}
+    &-2{padding:2rem 0;}
+}
+
+// Margins
+.my
+{
+    &-1{margin:1rem 0;}
+    &-2{margin:2rem 0;}
+    &-2{margin:2rem 0;}
+}
+
+// Container
+.container
+{
+    width:$max-width-m;
+    margin:0 auto;
+}
+
+// Current class
+.current
+{
+    color:$primary-color;
+}
+
+
+

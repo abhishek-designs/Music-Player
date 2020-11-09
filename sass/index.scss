@@ -1,0 +1,332 @@
+@import 'variables';
+@import 'utilities';
+
+html,body
+{
+    font-family:$secondary-font;
+    line-height:1.4;
+    background:$dark-color;
+    color:$light-color;
+}
+
+// Homepage styling
+#home
+{
+    .container
+    {
+        display:flex;
+        #navbar-m
+        {
+            padding:0.6rem 0;
+            .menu
+            {
+                position:relative;
+                top:0;
+                left:0;
+                padding:0 1.5rem;
+                .toggler
+                {
+                    position:absolute;
+                    height:30px;
+                    width:30px;
+                    z-index:2;
+                    opacity:0;
+                    cursor:pointer;
+
+                    &:checked + .hamburger > .lines::before,
+                    &:checked + .hamburger > .lines::after
+                    {
+                        bottom:0;
+                        width:100%;
+                        transform:rotate(90deg);
+                    }
+
+                    &:checked + .hamburger > .lines
+                    {
+                        transform:rotate(135deg);
+                    }
+
+                }
+
+                .hamburger
+                {
+                    position:absolute;
+                    height:40px;
+                    width:40px;
+                    background:$med-color;
+                    padding:0 0.2rem;
+                    display:flex;
+                    justify-content:center;
+                    align-items:center;
+                    z-index:1;
+
+                    .lines
+                    {
+                        position:relative;
+                        height:2.3px;
+                        width:100%;
+                        background:$light-color;
+                        border-radius:23px;
+                        transition:all $anim-speed ease;
+                        
+                        &::before,
+                        &::after
+                        {
+                            content:'';
+                            position:absolute;
+                            height:2.3px;
+                            width:80%;
+                            border-radius:23px;
+                            background:$light-color;
+                            bottom:8px;
+                        }
+
+                        &::after
+                        {
+                            width:90%;
+                            bottom:-8px;
+                        }
+                    }
+                }
+            }
+
+            .nav-links
+            {
+                position:relative;
+
+                .links-contain
+                {
+                    margin-top:5rem;
+
+                    li
+                    {
+                        a
+                        {
+                            .link
+                            {
+                                display:flex;
+                                align-items:center;
+                                padding:1.5rem;
+
+                                i
+                                {
+                                    font-size:1.5rem;
+                                }
+
+                                .lead-2
+                                {
+                                    font-size:1.2rem;
+                                    padding:0;
+                                    margin-left:1.2rem;
+                                }
+
+                                &:hover
+                                {
+                                    background:lighten($med-color,10%);
+                                }
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // Main section
+        #main-section
+        {
+            width:100%;
+            margin-left:0.6rem;
+            padding:1rem 0;
+
+            .head-2
+            {
+                padding-left:1.5rem;
+            }
+            .songs-list
+            {
+                margin-top:2rem;
+                .songs
+                {
+                    cursor:pointer;
+                    &:hover
+                    {
+                        background:lighten($med-color,10%);
+                    }
+                    li
+                    {
+                        padding:0 1.5rem;
+                        .song-contain
+                        {
+                            display:flex;
+                            align-items:center;
+                            padding:1rem 0;
+                            .album-art
+                            {
+                                height:5rem;
+                                width:5rem;
+
+                                img
+                                {
+                                    width:100%;
+                                    border-radius:20px;
+                                }
+
+                            }
+
+                            .song-details
+                            {
+                                margin-left:1.5rem;
+                                .head-2
+                                {
+                                    font-weight:normal;
+                                    font-size:1.2rem;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Music player styling
+.music-player
+{
+    position:fixed;
+    left:0;
+    right:0;
+    height:8rem;
+    bottom:1rem;
+    border-radius:20px;
+    
+    .container
+    {
+        position:relative;
+        display:grid;
+        grid-template-columns:0.3fr 1fr;
+        // align-items:center;
+        width:90%;
+
+        .song-art
+        {
+            position:relative;
+            grid-row:span 2;
+            height:100%;
+            width:6rem;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+    
+            img
+            {
+                width:100%;
+                border-radius:50%;
+            }
+
+        }
+
+        // This class should be used for spining the album art
+        .spin
+        {
+            animation:spin 2s linear infinite;
+        }
+
+        @keyframes spin
+        {
+            from
+            {
+                transform:rotate(0deg);
+            }
+            to
+            {
+                transform:rotate(360deg);
+            }
+        }
+    
+        .controls
+        {
+            width:100%;
+            // margin-left:3rem;
+            
+            .btn-grp
+            {
+                display:flex;
+                justify-content:space-around;
+                align-items:center;
+
+                .btn
+                {
+                    cursor:pointer;
+                }
+
+                .backward,
+                .forward
+                {
+                    font-size:1.8rem;
+                }
+
+                .play-pause-btn
+                {
+                    height:3rem;
+                    width:3rem;
+                    background:$light-color;
+                    padding:1.6rem;
+                    display:flex;
+                    justify-content:center;
+                    align-items:center;
+                    border-radius:50%;
+                    color:$primary-color;
+                }
+                
+            }
+
+
+        }
+
+        // Bottom styling
+        .bottom-tab
+        {
+            // Timing
+            .timing
+            {
+
+                width:100%;              
+                display:flex;
+                justify-content:space-between;
+                // margin-bottom:0.6rem;
+
+                .current-time,
+                .duration-time
+                {
+                    font-size:0.8rem;
+                }
+            }
+
+            // Progress bar
+            .progress-bar-contain
+            {
+                position:relative;
+                margin-top:0.6rem;
+                height:0.3rem;
+                width:100%;
+                background:darken($primary-color,10%);
+                border-radius:23px;
+                cursor:pointer;
+                
+                .progress-bar
+                {
+                    position:absolute;
+                    top:0;
+                    left:0;
+                    height:100%;
+                    width:0;
+                    background:$light-color;
+                    border-radius:inherit;
+                }
+            }
+        }
+
+    }
+}

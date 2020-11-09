@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/5514dc631b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/index.css">
+    <title>Music Player</title>
+</head>
+<body>
+    <!-- Homepage -->
+    <header id="home" class="home">
+        <div class="container">
+
+            <!-- Side navbar for mobo -->
+            <aside id="navbar-m" class="navbar-m py-1 bg-med">
+                <!-- Hamburger menu -->
+                <div class="menu">
+                    <!-- Checkbox as a toggler -->
+                    <input type="checkbox" name="toggler" id="toggler" class="toggler">
+                    <!-- Hamburger logo -->
+                    <div class="hamburger">
+                        <!-- Hamburger lines -->
+                        <div class="lines"></div>
+                    </div>
+                </div>
+
+                <!-- Nav links on the navbar -->
+                <div class="nav-links">
+                    <ul class="links-contain">
+                        <li>
+                            <a href="#">
+                                <div class="link" title="Home">
+                                        <i class="fa fa-home current"></i>
+                                        
+                                </div>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <div class="link" title="Explore">
+                                    <i class="fa fa-music"></i>
+                                    
+                                </div>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <div class="link" title="Radio">
+                                    <i class="fa fa-play"></i>
+                                    
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- Side section -->
+            <section id="main-section" class="bg-med">
+                <h1 class="head-2">Songs</h1>
+
+                <!-- List of various songs -->
+                <div class="songs-list">
+                    <ul class="songs">
+                        <li>
+                            <div class="song-contain">
+                                <!-- Album art of the song -->
+                                <div class="album-art">
+                                    <img src="img/Attention.png" alt="song-art">
+                                </div>
+                                <!-- Details of the song -->
+                                <div class="song-details">
+                                    <h2 class="head-3">Attention</h2>
+                                    <p class="lead-2 semi-med">Charlie Puth</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <ul class="songs">
+                        <li>
+                            <div class="song-contain">
+                                <!-- Album art of the song -->
+                                <div class="album-art">
+                                    <img src="img/ocean.jpg" alt="song-art">
+                                </div>
+                                <!-- Details of the song -->
+                                <div class="song-details">
+                                    <h2 class="head-3">Ocean</h2>
+                                    <p class="lead-2 semi-med">David Davis</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <ul class="songs">
+                        <li>
+                            <div class="song-contain">
+                                <!-- Album art of the song -->
+                                <div class="album-art">
+                                    <img src="img/Believer.jpg" alt="song-art">
+                                </div>
+                                <!-- Details of the song -->
+                                <div class="song-details">
+                                    <h2 class="head-3">Believer</h2>
+                                    <p class="lead-2 semi-med">Imagine Dragons</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+            </section>
+        </div>
+    </header>
+
+    <!-- Music player -->
+    <div class="music-player bg-primary py-1">
+        <div class="container">
+            <!-- Audio to be played -->
+            <audio src="songs/David_Davis_-_Ocean.mp3">
+                Check your browser buddy!!
+            </audio>
+            <!-- Song img -->
+            <div class="song-art">
+                <img src="img/ocean.jpg" alt="album-art">
+            </div>
+            
+            <!-- Player controls -->
+            <div class="controls">
+                <!-- Button group -->
+                <div class="btn-grp">
+                    <div class="backward-btn btn">
+                        <i class="fa fa-step-backward backward"></i>
+                    </div>
+                    <div class="play-pause-btn btn">
+                        <i class="fa fa-play play"></i>
+                    </div>
+                    <div class="forward-btn btn">
+                        <i class="fa fa-step-forward forward"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bottom grp -->
+            <div class="bottom-tab">
+                <!-- Timings of the music -->
+                <div class="timing">
+                    <div class="current-time light">
+                        0:00
+                    </div>
+                    <div class="duration-time light">
+                        4:02
+                    </div>
+                </div>
+                <!-- Progress bar -->
+                <div class="progress-bar-contain">
+                    <div class="progress-bar"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Embeded scripts -->
+    <script src="scripts/main.js"></script>
+</body>
+</html>
