@@ -154,8 +154,24 @@ song.addEventListener('timeupdate',(e) => {
     // Progress bar
     
     // Calculating the percentage width for our progress bar from current time and duration
-    let progressWidth = (rawCurrentTime/rawDurationTime)*100;
+    let progressWidth = (rawCurrentTime / rawDurationTime) * 100;
     progressBar.style.width = `${progressWidth}%`;
 });
+
+// Adding the feature for the user to seek the music forward/backward manually
+progressContain.addEventListener('click',(e) => {
+    // Fetching the exact width of the progress bar and mouse click position on the bar
+    let progressBarWidth = progressContain.clientWidth;
+    let progressClickPos = e.offsetX;
+
+    let {duration} = song;
+    
+    // Calculating the current time from progress width and click position
+    let current = (progressClickPos / progressBarWidth) * duration;
+
+    song.currentTime = current;
+    // console.log(current);
+    // console.log(e);
+}); 
 
 
