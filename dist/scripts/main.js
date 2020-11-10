@@ -2,6 +2,7 @@
 const musicPlayer = document.querySelector('.music-player');
 const song = musicPlayer.querySelector('audio');
 const albumArt = musicPlayer.querySelector('.song-art img');
+const songDetails = musicPlayer.querySelector('.song-details .lead-2');
 const prevBtn = musicPlayer.querySelector('.backward-btn');
 const playPauseBtn = musicPlayer.querySelector('.play-pause-btn');
 const playPauseIcon = musicPlayer.querySelector('.play-pause-btn i');
@@ -10,6 +11,10 @@ const currentTime = musicPlayer.querySelector('.current-time');
 const durationTime = musicPlayer.querySelector('.duration-time');
 const progressContain = musicPlayer.querySelector('.progress-bar-contain');
 const progressBar = progressContain.querySelector('.progress-bar');
+
+const songsListContain = document.querySelector('.songs-list');
+const songsList = songsListContain.querySelectorAll('.songs');
+
 
 // Storing all our songs as an array of objects
 const songs = [
@@ -42,6 +47,7 @@ let songPosition = 0;
 const playSong = () => {
     playing = true; // Now the song is playing
     albumArt.classList.add('spin'); // Spin the album art when the song is playing
+    songDetails.classList.add('slide'); // Slide the song details when the song is playing
     playPauseIcon.classList.replace('fa-play','fa-pause'); // Changing the play btn icon according to the condition
     song.play(); // Play the song
 };
@@ -50,7 +56,8 @@ const playSong = () => {
 const pauseSong = () => {
     playing = false; // Now the song is paused
     albumArt.classList.remove('spin'); // Removing the spin when the song is paused
-    playPauseIcon.classList.replace('fa-pause','fa-play');
+    songDetails.classList.remove('slide'); // Removing the slide when the song is paused
+    playPauseIcon.classList.replace('fa-pause','fa-play'); // Changing the play btn icon according to the condition
     song.pause(); //Pause the song
 };
 
@@ -102,6 +109,7 @@ const setSong = (songPosition) => {
     // Play the song according to the position
     albumArt.src = `img/${songs[songPosition].songImg}`; // Song's img
     song.src = `songs/${songs[songPosition].songSrc}`; // Song's source
+    songDetails.innerHTML = `${songs[songPosition].songName} - ${songs[songPosition].artistName}`;
 
     playSong(); // Play the song
 }
@@ -164,7 +172,7 @@ progressContain.addEventListener('click',(e) => {
     let progressBarWidth = progressContain.clientWidth;
     let progressClickPos = e.offsetX;
 
-    let {duration} = song;
+    let {duration} = song; // let duration = song.duration;
     
     // Calculating the current time from progress width and click position
     let current = (progressClickPos / progressBarWidth) * duration;
@@ -173,5 +181,34 @@ progressContain.addEventListener('click',(e) => {
     // console.log(current);
     // console.log(e);
 }); 
+
+// Play the next song when the song gets ended
+song.addEventListener('ended',(e) => {
+    nextSong();
+});
+
+// Now adding the functionality to manually add the music on the player from the songs list
+// Fetching each song from the songs list
+songsList.forEach((indieSong) => {
+    
+    // Adding functionalities to each song list
+    indieSong.addEventListener('click',(e) => {
+        let imgSrc = indieSong.querySelector('.album-art img').src; // Album img source
+        let songSrc = indieSong.querySelector('audio').src; // Song's source
+        let songName = indieSong.querySelector('.song-details .name').textContent; // Get the song's name
+        let songArtist = indieSong.querySelector('.song-details .artist').textContent; // Get the song's artist
+        playThisSong(songSrc,imgSrc,songName,songArtist); // Calling the function
+        // console.log(songName);
+    });
+})
+
+// Function to play the song which user have selected
+const playThisSong = (songSrc,imgSrc,songName,songArtist) => {
+
+    song.src = songSrc; // Set the selected song's img to the player
+    albumArt.src = imgSrc; // Set the selected song's source to the player 
+    songDetails.innerHTML = `${songName} - ${songArtist}`; // Set the details on the player
+    playSong(); // Play the selected song
+};
 
 

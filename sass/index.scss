@@ -18,6 +18,9 @@ html,body
         #navbar-m
         {
             padding:0.6rem 0;
+            // transform:scale(0);
+            width:0;
+            transition:width $anim-speed ease;
             .menu
             {
                 position:relative;
@@ -93,6 +96,7 @@ html,body
             .nav-links
             {
                 position:relative;
+                opacity:0;
 
                 .links-contain
                 {
@@ -141,7 +145,8 @@ html,body
 
             .head-2
             {
-                padding-left:1.5rem;
+                // padding-left:1.5rem;
+                text-align:center;
             }
             .songs-list
             {
@@ -197,15 +202,18 @@ html,body
     position:fixed;
     left:0;
     right:0;
-    height:8rem;
+    height:7rem;
     bottom:1rem;
     border-radius:20px;
+    display:flex;
+    align-items:center;
     
     .container
     {
         position:relative;
         display:grid;
-        grid-template-columns:0.3fr 1fr;
+        grid-template-columns:0.2fr 1fr;
+        grid-gap:0.6rem;
         // align-items:center;
         width:90%;
 
@@ -214,17 +222,55 @@ html,body
             position:relative;
             grid-row:span 2;
             height:100%;
-            width:6rem;
+            width:4rem;
             display:flex;
             justify-content:center;
             align-items:center;
     
             img
             {
+                position:absolute;
+                top:0;
                 width:100%;
                 border-radius:50%;
             }
 
+            .song-details
+            {
+                position:absolute;
+                bottom:-15px;
+                width:80%;
+                // background:red;
+                overflow:hidden;
+                
+                .song-name
+                {
+                    width:max-content;
+
+                    .lead-2
+                    {
+                        // transform:translateX(-5rem);
+                    }
+
+                    // Song name and artist sliding when the song is playing
+                    .slide
+                    {
+                        animation:sliding-text 5s linear infinite;
+                    }
+
+                    @keyframes sliding-text
+                    {
+                        from
+                        {
+                            transform:translateX(1rem);
+                        }
+                        to
+                        {
+                            transform:translateX(-100%);
+                        }
+                    }
+                }
+            }
         }
 
         // This class should be used for spining the album art
@@ -264,15 +310,15 @@ html,body
                 .backward,
                 .forward
                 {
-                    font-size:1.8rem;
+                    font-size:1.3rem;
                 }
 
                 .play-pause-btn
                 {
-                    height:3rem;
-                    width:3rem;
+                    height:2rem;
+                    width:2rem;
                     background:$light-color;
-                    padding:1.6rem;
+                    padding:1.4rem;
                     display:flex;
                     justify-content:center;
                     align-items:center;
@@ -291,10 +337,12 @@ html,body
             // Timing
             .timing
             {
-
-                width:100%;              
+                position:relative;
+                width:80%;              
                 display:flex;
                 justify-content:space-between;
+                left:50%;
+                transform:translate(-50%);
                 // margin-bottom:0.6rem;
 
                 .current-time,
@@ -310,10 +358,12 @@ html,body
                 position:relative;
                 margin-top:0.6rem;
                 height:0.3rem;
-                width:100%;
+                width:80%;
                 background:darken($primary-color,10%);
                 border-radius:23px;
                 cursor:pointer;
+                left:50%;
+                transform:translate(-50%);
                 
                 .progress-bar
                 {
