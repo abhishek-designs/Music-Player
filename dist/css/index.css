@@ -171,7 +171,7 @@ html, body {
             background: #535353; }
   #home .container #main-section {
     width: 100%;
-    margin-left: 0.6rem;
+    margin-left: 0;
     padding: 1rem 0; }
     #home .container #main-section .head-2 {
       text-align: center; }
