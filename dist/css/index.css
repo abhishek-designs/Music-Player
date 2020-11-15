@@ -99,7 +99,8 @@ p {
   -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  user-select: none; }
+  user-select: none;
+  -webkit-tap-highlight-color: transparent; }
 
 html, body {
   font-family: "Open Sans", sans-serif;
