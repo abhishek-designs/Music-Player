@@ -17,6 +17,18 @@ const songsListContain = document.querySelector('.songs-list ul');
 // Storing all our songs as an array of objects
 const songs = [
     {
+        songName: 'On My Own (ft. Kid Cudi)',
+        artistName: 'Jaden Smith',
+        songImg: 'on_my_own.jpg',
+        songSrc: 'Jaden-Smith-ft-Kid-Cudi-On-My-Own.mp3'
+    },
+    {
+        songName: 'Rainfall (ft. Tiana Major9)',
+        artistName: 'Stormzy',
+        songImg: 'Rainfall.jpg',
+        songSrc: 'STORMZY_FT_TIANA_MAJOR9_-_RAINFALLcom.mp3'
+    },
+    {
         songName: 'Ocean',
         artistName: 'David Davis',
         songImg: 'ocean.jpg',
@@ -33,31 +45,7 @@ const songs = [
         artistName: 'Imagine Dragons',
         songImg: 'Believer.jpg',
         songSrc: 'Imagine Dragons - Believer.mp3'
-    },
-    {
-        songName: 'Believer',
-        artistName: 'Imagine Dragons',
-        songImg: 'Believer.jpg',
-        songSrc: 'Imagine Dragons - Believer.mp3'
-    },
-    {
-        songName: 'Believer',
-        artistName: 'Imagine Dragons',
-        songImg: 'Believer.jpg',
-        songSrc: 'Imagine Dragons - Believer.mp3'
-    },
-    {
-        songName: 'Believer',
-        artistName: 'Imagine Dragons',
-        songImg: 'Believer.jpg',
-        songSrc: 'Imagine Dragons - Believer.mp3'
-    },
-    {
-        songName: 'Believer',
-        artistName: 'Imagine Dragons',
-        songImg: 'Believer.jpg',
-        songSrc: 'Imagine Dragons - Believer.mp3'
-    },
+    }
 ];
 
 // Assuming our song is not playing initially
