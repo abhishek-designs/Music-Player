@@ -15,9 +15,14 @@ html,body
     .container
     {
         display:flex;
+
         #navbar-m
         {
+            // position:fixed;
             padding:0.6rem 0;
+            // top:0;
+            // left:0;
+            // overflow:hidden;
             // transform:scale(0);
             width:0;
             transition:width $anim-speed ease;
@@ -151,16 +156,18 @@ html,body
             .songs-list
             {
                 margin-top:2rem;
-                .songs
+                ul
                 {
                     cursor:pointer;
-                    &:hover
-                    {
-                        background:lighten($med-color,10%);
-                    }
-                    li
+                    .songs
                     {
                         padding:0 1.5rem;
+
+                        &:hover
+                        {
+                            background:lighten($med-color,10%);
+                        }
+
                         .song-contain
                         {
                             display:flex;
@@ -205,8 +212,13 @@ html,body
     height:7rem;
     bottom:1rem;
     border-radius:20px;
+    // transform:translateY(10rem);
+    // opacity:0;
+    // pointer-events:none;
     display:flex;
     align-items:center;
+    transition:all $anim-speed ease;
+    z-index:2;
     
     .container
     {
@@ -306,6 +318,11 @@ html,body
                 .forward
                 {
                     font-size:1.3rem;
+
+                    &:hover
+                    {
+                        color:darken($light-color,5%);
+                    }
                 }
 
                 .play-pause-btn
@@ -319,6 +336,11 @@ html,body
                     align-items:center;
                     border-radius:50%;
                     color:$primary-color;
+
+                    &:hover
+                    {
+                        background:darken($light-color,5%);
+                    }
                 }
                 
             }
@@ -374,4 +396,37 @@ html,body
         }
 
     }
+
+    // Close btn styling
+    .close-music
+    {
+        position:absolute;
+        top:-30px;
+        right:50px;
+        // transform:translateY(-70px);
+        height:30px;
+        width:70px;
+        background:darken($primary-color,20%);
+        border-top-left-radius:15px;
+        border-top-right-radius:15px;
+        cursor:pointer;
+        z-index:-1;
+        // opacity:0.99;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        // transform:translateY(-30px);
+
+        .close-ico
+        {
+            font-size:1.5rem;
+
+            span
+            {
+                user-select:none;
+            }
+        }
+    }
+    
+    
 }

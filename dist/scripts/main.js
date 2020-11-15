@@ -10,11 +10,10 @@ const nextBtn = musicPlayer.querySelector('.forward-btn');
 const currentTime = musicPlayer.querySelector('.current-time');
 const durationTime = musicPlayer.querySelector('.duration-time');
 const progressContain = musicPlayer.querySelector('.progress-bar-contain');
+const playerCloseBtn = musicPlayer.querySelector('.close-music');
 const progressBar = progressContain.querySelector('.progress-bar');
 
-const songsListContain = document.querySelector('.songs-list');
-const songsList = songsListContain.querySelectorAll('.songs');
-
+const songsListContain = document.querySelector('.songs-list ul');
 
 // Storing all our songs as an array of objects
 const songs = [
@@ -35,7 +34,31 @@ const songs = [
         artistName: 'Imagine Dragons',
         songImg: 'Believer.jpg',
         songSrc: 'Imagine Dragons - Believer.mp3'
-    }
+    },
+    {
+        songName: 'Believer',
+        artistName: 'Imagine Dragons',
+        songImg: 'Believer.jpg',
+        songSrc: 'Imagine Dragons - Believer.mp3'
+    },
+    {
+        songName: 'Believer',
+        artistName: 'Imagine Dragons',
+        songImg: 'Believer.jpg',
+        songSrc: 'Imagine Dragons - Believer.mp3'
+    },
+    {
+        songName: 'Believer',
+        artistName: 'Imagine Dragons',
+        songImg: 'Believer.jpg',
+        songSrc: 'Imagine Dragons - Believer.mp3'
+    },
+    {
+        songName: 'Believer',
+        artistName: 'Imagine Dragons',
+        songImg: 'Believer.jpg',
+        songSrc: 'Imagine Dragons - Believer.mp3'
+    },
 ];
 
 // Assuming our song is not playing initially
@@ -187,21 +210,6 @@ song.addEventListener('ended',(e) => {
     nextSong();
 });
 
-// Now adding the functionality to manually add the music on the player from the songs list
-// Fetching each song from the songs list
-songsList.forEach((indieSong) => {
-    
-    // Adding functionalities to each song list
-    indieSong.addEventListener('click',(e) => {
-        let imgSrc = indieSong.querySelector('.album-art img').src; // Album img source
-        let songSrc = indieSong.querySelector('audio').src; // Song's source
-        let songName = indieSong.querySelector('.song-details .name').textContent; // Get the song's name
-        let songArtist = indieSong.querySelector('.song-details .artist').textContent; // Get the song's artist
-        playThisSong(songSrc,imgSrc,songName,songArtist); // Calling the function
-        // console.log(songName);
-    });
-})
-
 // Function to play the song which user have selected
 const playThisSong = (songSrc,imgSrc,songName,songArtist) => {
 
@@ -211,4 +219,70 @@ const playThisSong = (songSrc,imgSrc,songName,songArtist) => {
     playSong(); // Play the selected song
 };
 
+// Appending all the stored songs as array of objects to the interface
+// Avoiding hard coded songs list on the interface
+// var allSongs = songsListContain.querySelector('ul');
+var template = '';
+for (let i = 0; i < songs.length; i++) {
 
+    let temp = `<li class="songs">
+                        <div class="song-contain">
+                            <!-- Audio source for the song -->
+                            <audio src="songs/${songs[i].songSrc}">Check yo browser</audio>
+                            <!-- Album art of the song -->
+                            <div class="album-art">
+                                <img src="img/${songs[i].songImg}" alt="song-art">
+                            </div>
+                            <!-- Details of the song -->
+                            <div class="song-details">
+                                <h2 class="head-3 name">${songs[i].songName}</h2>
+                                <p class="lead-2 semi-med artist">${songs[i].artistName}</p>
+                            </div>
+                        </div>
+                    </li>`; 
+    // Now appending the template to the list
+    template += temp;
+    
+}
+// Appending songs to the list
+songsListContain.innerHTML = template;
+
+// Selecting songs from the songs list
+const songsList = songsListContain.querySelectorAll('.songs');
+
+// Now adding the functionality to manually add the music on the player from the songs list
+// Fetching each song from the songs list
+songsList.forEach((indieSong) => {
+    // // Adding functionalities to each song list
+    indieSong.addEventListener('click',(e) => {
+        // Open the music player as the user hit the song ASAP
+        openPlayer();
+        let imgSrc = indieSong.querySelector('.album-art img').src; // Album img source
+        let songSrc = indieSong.querySelector('audio').src; // Song's source
+        let songName = indieSong.querySelector('.song-details .name').textContent; // Get the song's name
+        let songArtist = indieSong.querySelector('.song-details .artist').textContent; // Get the song's artist
+        playThisSong(songSrc,imgSrc,songName,songArtist); // Calling the function
+    });
+})
+
+// Function to show the music player
+const openPlayer = () => {
+    musicPlayer.style.transform = 'translateY(0)';
+    musicPlayer.style.opacity = 1;
+    musicPlayer.style.pointerEvents = 'all';
+}   
+
+// Function to hide the music player
+const closePlayer = () => {
+    musicPlayer.style.transform = 'translateY(10rem)';
+    musicPlayer.style.opacity = 0;
+    musicPlayer.style.pointerEvents = 'none';
+}   
+
+// Adding functionality to the player's close btn
+playerCloseBtn.addEventListener('click',(e) => {
+    // Close the music player
+    closePlayer();
+    // Stop the song
+    song.pause();
+});
