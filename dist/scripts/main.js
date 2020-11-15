@@ -12,7 +12,6 @@ const durationTime = musicPlayer.querySelector('.duration-time');
 const progressContain = musicPlayer.querySelector('.progress-bar-contain');
 const playerCloseBtn = musicPlayer.querySelector('.close-music');
 const progressBar = progressContain.querySelector('.progress-bar');
-
 const songsListContain = document.querySelector('.songs-list ul');
 
 // Storing all our songs as an array of objects
