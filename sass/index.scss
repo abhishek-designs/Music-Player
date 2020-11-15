@@ -32,7 +32,7 @@ html,body
                 top:0;
                 left:0;
                 padding:0 1.5rem;
-                user-select:none;
+
                 .toggler
                 {
                     position:absolute;
@@ -163,7 +163,6 @@ html,body
                     .songs
                     {
                         padding:0 1.5rem;
-                        user-select:none;
 
                         &:hover
                         {

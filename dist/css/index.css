@@ -93,6 +93,14 @@ p {
 .current {
   color: #58CC6B; }
 
+.no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
 html, body {
   font-family: "Open Sans", sans-serif;
   line-height: 1.4;
@@ -109,8 +117,7 @@ html, body {
       position: relative;
       top: 0;
       left: 0;
-      padding: 0 1.5rem;
-      user-select: none; }
+      padding: 0 1.5rem; }
       #home .container #navbar-m .menu .toggler {
         position: absolute;
         height: 30px;
@@ -181,8 +188,7 @@ html, body {
       #home .container #main-section .songs-list ul {
         cursor: pointer; }
         #home .container #main-section .songs-list ul .songs {
-          padding: 0 1.5rem;
-          user-select: none; }
+          padding: 0 1.5rem; }
           #home .container #main-section .songs-list ul .songs:hover {
             background: #535353; }
           #home .container #main-section .songs-list ul .songs .song-contain {
