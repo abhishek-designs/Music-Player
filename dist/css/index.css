@@ -109,7 +109,8 @@ html, body {
       position: relative;
       top: 0;
       left: 0;
-      padding: 0 1.5rem; }
+      padding: 0 1.5rem;
+      user-select: none; }
       #home .container #navbar-m .menu .toggler {
         position: absolute;
         height: 30px;
