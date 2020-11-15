@@ -131,7 +131,7 @@ const setSong = (songPosition) => {
     // Play the song according to the position
     albumArt.src = `img/${songs[songPosition].songImg}`; // Song's img
     song.src = `songs/${songs[songPosition].songSrc}`; // Song's source
-    songDetails.innerHTML = `${songs[songPosition].songName} - ${songs[songPosition].artistName}`;
+    songDetails.innerHTML = `${songs[songPosition].songName} - ${songs[songPosition].artistName}`; // Show the song details
 
     playSong(); // Play the song
 }
