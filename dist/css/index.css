@@ -200,8 +200,8 @@ html, body {
               height: 5rem;
               width: 5rem; }
               #home .container #main-section .songs-list ul .songs .song-contain .album-art img {
-                height: 100%;
-                width: 100%;
+                height: 5rem;
+                width: 5rem;
                 border-radius: 20px;
                 object-fit: cover; }
             #home .container #main-section .songs-list ul .songs .song-contain .song-details {
