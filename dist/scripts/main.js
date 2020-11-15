@@ -17,6 +17,12 @@ const songsListContain = document.querySelector('.songs-list ul');
 // Storing all our songs as an array of objects
 const songs = [
     {
+        songName: 'Sucker',
+        artistName: 'Jonas Brothers',
+        songImg: 'sucker.jpg',
+        songSrc: 'Sucker Jonas Brothers Mp3 Official Music filmysongs.co.mp3'
+    },
+    {
         songName: 'On My Own (ft. Kid Cudi)',
         artistName: 'Jaden Smith',
         songImg: 'on_my_own.jpg',

@@ -24,6 +24,7 @@ ul
 h1,h2,h3,h4,h5,h6
 {
     font-family:$primary-font;
+    font-weight:500;
     padding-bottom:0.6rem;
     text-transform:uppercase;
 }
@@ -37,11 +38,12 @@ p
 .head
 {
     &-1
-    {   
+    {   font-weight:700;
         font-size:2rem;
     }
     &-2
     {
+        font-weight:700;
         font-size:1.5rem;
     }
     &-3
