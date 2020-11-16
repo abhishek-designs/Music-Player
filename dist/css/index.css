@@ -96,10 +96,11 @@ p {
 .current {
   color: #58CC6B; }
 
+.hover-effect:hover {
+  background: #535353; }
+
 .selected {
   background: rgba(88, 204, 107, 0.1); }
-  .selected:hover {
-    background: none; }
 
 .no-select {
   -webkit-touch-callout: none;
@@ -225,8 +226,6 @@ html, body {
         cursor: pointer; }
         #home .container #main-section .songs-list ul .songs {
           padding: 0 1.5rem; }
-          #home .container #main-section .songs-list ul .songs:hover {
-            background: #535353; }
           #home .container #main-section .songs-list ul .songs .song-contain {
             display: flex;
             align-items: center;

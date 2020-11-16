@@ -116,15 +116,20 @@ p
     color:$primary-color;
 }
 
+// Songs list hover effect
+.hover-effect
+{
+    &:hover
+    {
+        background:lighten($med-color,10%);
+    }
+
+}
+
 // Selected class to indicate the current playing song
 .selected
 {
     background:rgba($primary-color,0.1);
-
-    &:hover
-    {
-        background:none;
-    }
 }
 
 // Class to get rid of the blue highlighting on phones

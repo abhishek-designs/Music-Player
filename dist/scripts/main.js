@@ -232,23 +232,23 @@ const playThisSong = (songId,songSrc,imgSrc,songName,songArtist) => {
 var template = '';
 for (let i = 0; i < songs.length; i++) {
 
-    let temp = `<li class="songs">
-                        <div class="song-contain">
-                            <!-- Hidden id for the song -->
-                            <input type="text" value="${songs[i].songId}" class="song-id" hidden>
-                            <!-- Audio source for the song -->
-                            <audio src="songs/${songs[i].songSrc}">Check yo browser</audio>
-                            <!-- Album art of the song -->
-                            <div class="album-art">
-                                <img src="img/${songs[i].songImg}" alt="song-art">
-                            </div>
-                            <!-- Details of the song -->
-                            <div class="song-details">
-                                <h2 class="head-3 name">${songs[i].songName}</h2>
-                                <p class="lead-2 semi-med artist">${songs[i].artistName}</p>
-                            </div>
+    let temp = `<li class="songs hover-effect">
+                    <div class="song-contain">
+                        <!-- Hidden id for the song -->
+                        <input type="text" value="${songs[i].songId}" class="song-id" hidden>
+                        <!-- Audio source for the song -->
+                        <audio src="songs/${songs[i].songSrc}">Check yo browser</audio>
+                        <!-- Album art of the song -->
+                        <div class="album-art">
+                            <img src="img/${songs[i].songImg}" alt="song-art">
                         </div>
-                    </li>`; 
+                        <!-- Details of the song -->
+                        <div class="song-details">
+                            <h2 class="head-3 name">${songs[i].songName}</h2>
+                            <p class="lead-2 semi-med artist">${songs[i].artistName}</p>
+                        </div>
+                    </div>
+                </li>`; 
     // Now appending the template to the list
     template += temp;
     
@@ -264,15 +264,20 @@ const songsList = songsListContain.querySelectorAll('.songs');
 songsList.forEach((indieSong) => {
     // // Adding functionalities to each song list
     indieSong.addEventListener('click',(e) => {
-        // Open the music player as the user hit the song ASAP
-        openPlayer();
         let songId = indieSong.querySelector('.song-id').value;
         let imgSrc = indieSong.querySelector('.album-art img').src; // Album img source
         let songSrc = indieSong.querySelector('audio').src; // Song's source
         let songName = indieSong.querySelector('.song-details .name').textContent; // Get the song's name
         let songArtist = indieSong.querySelector('.song-details .artist').textContent; // Get the song's artist
-        indieSong.classList.add('selected');
-        playThisSong(songId,songSrc,imgSrc,songName,songArtist); // Calling the function
+
+        // Open the music player as the user hit the song ASAP
+        openPlayer();
+
+        // Highlight the current song
+        currentSelection(songId);
+
+        // Play the selected song
+        playThisSong(songId,songSrc,imgSrc,songName,songArtist); 
 
     });
 })
@@ -306,23 +311,14 @@ playerCloseBtn.addEventListener('click',(e) => {
 // Highilght the currently playing song
 const currentSelection = (songPosition) => {
     songsList.forEach((indieSong) => {
+        indieSong.classList.add('hover-effect');
         indieSong.classList.remove('selected');
     })
 
+    // Higlighting the selected song
+    songsList[songPosition].classList.remove('hover-effect');
     songsList[songPosition].classList.add('selected');
+    
     // console.log(songsList[songPosition]);
 }
 
-// const setSelection = (songPosition) => {
-//     songsList.forEach((indieSong) => {
-        
-//         let currentSong = indieSong.querySelector('.song-id');
-//         let currentSongPos = currentSong.value;
-
-//         if(currentSongPos === songPosition)
-//         {
-//             // indieSong.
-//             console.log(currentSong);
-//         }
-//     })
-// }
