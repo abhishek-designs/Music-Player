@@ -130,19 +130,21 @@ html, body {
   .intro .intro-content .head-1 {
     display: block;
     font-size: 4rem;
-    background: #58CC6B;
+    background: #2F2F2F;
     overflow: hidden; }
     .intro .intro-content .head-1:nth-child(1) .text-content {
       transform: translateX(-100%); }
     .intro .intro-content .head-1:nth-child(2) .text-content {
       transform: translateX(100%); }
     .intro .intro-content .head-1 .text-content {
-      display: block;
-      animation: slide-in 1s forwards ease-in-out; }
-
-@keyframes slide-in {
-  to {
-    transform: translateX(0); } }
+      display: block; }
+  .intro-slider {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateX(-100%); }
 
 #home .container {
   display: flex; }

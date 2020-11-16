@@ -30,7 +30,7 @@ html,body
             display:block;
             font-size:4rem;
             // width:5rem;
-            background:$primary-color;
+            background:$dark-color;
             overflow:hidden;
 
             &:nth-child(1)
@@ -53,17 +53,27 @@ html,body
             {
                 display:block;
                 // transform:translateX(-50px);
-                animation:slide-in 1s forwards ease-in-out;
+                // animation:slide-in 1s forwards ease-in-out;
             }
 
-            @keyframes slide-in
-            {
-                to
-                {
-                    transform:translateX(0);
-                }
-            }
+            // @keyframes slide-in
+            // {
+            //     to
+            //     {
+            //         transform:translateX(0);
+            //     }
+            // }
         }
+    }
+
+    &-slider
+    {
+        position:fixed;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+        transform:translateX(-100%);
     }
 }
 
