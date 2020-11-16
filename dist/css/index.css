@@ -251,6 +251,9 @@ html, body {
   height: 7rem;
   bottom: 1rem;
   border-radius: 20px;
+  transform: translateY(10rem);
+  opacity: 0;
+  pointer-events: none;
   display: flex;
   align-items: center;
   transition: all 0.3s ease;
