@@ -17,36 +17,42 @@ const songsListContain = document.querySelector('.songs-list ul');
 // Storing all our songs as an array of objects
 const songs = [
     {
+        songId: 0,
         songName: 'Sucker',
         artistName: 'Jonas Brothers',
         songImg: 'sucker.jpg',
         songSrc: 'Sucker Jonas Brothers Mp3 Official Music filmysongs.co.mp3'
     },
     {
+        songId: 1,
         songName: 'On My Own (ft. Kid Cudi)',
         artistName: 'Jaden Smith',
         songImg: 'on_my_own.jpg',
         songSrc: 'Jaden-Smith-ft-Kid-Cudi-On-My-Own.mp3'
     },
     {
+        songId: 2,
         songName: 'Rainfall (ft. Tiana Major9)',
         artistName: 'Stormzy',
         songImg: 'Rainfall.jpg',
         songSrc: 'STORMZY_FT_TIANA_MAJOR9_-_RAINFALLcom.mp3'
     },
     {
+        songId: 3,
         songName: 'Ocean',
         artistName: 'David Davis',
         songImg: 'ocean.jpg',
         songSrc: 'David_Davis_-_Ocean.mp3'
     },
     {
+        songId: 4,
         songName: 'Attention',
         artistName: 'Charlie Puth',
         songImg: 'Attention.png',
         songSrc: 'Attention.mp3'
     },
     {
+        songId: 5,
         songName: 'Believer',
         artistName: 'Imagine Dragons',
         songImg: 'Believer.jpg',
@@ -82,6 +88,8 @@ playPauseBtn.addEventListener('click',(e) => {
     !playing ? playSong() : pauseSong(); // Toggling the play/pause function
 });
 
+
+
 // Function to play the next song
 const nextSong = () => {
 
@@ -98,6 +106,9 @@ const nextSong = () => {
 
     // Set all the resources required for the song
     setSong(songPosition);
+    // Calling function to indicate the current playing song
+    currentSelection(songPosition);
+    // setSelection(songPosition);
     // console.log(`${songs[songPosition].songName} by ${songs[songPosition].artistName}`);
 }
 
@@ -117,6 +128,8 @@ const prevSong = () => {
 
     // Set all the resources required for the song
     setSong(songPosition);
+    // Calling function to indicate the current playing song
+    currentSelection(songPosition);
     // console.log(`${songs[songPosition].songName} by ${songs[songPosition].artistName}`);
 }
 
@@ -204,8 +217,9 @@ song.addEventListener('ended',(e) => {
 });
 
 // Function to play the song which user have selected
-const playThisSong = (songSrc,imgSrc,songName,songArtist) => {
+const playThisSong = (songId,songSrc,imgSrc,songName,songArtist) => {
 
+    songPosition = songId; // Setting the current song position to the selected song's position
     song.src = songSrc; // Set the selected song's img to the player
     albumArt.src = imgSrc; // Set the selected song's source to the player 
     songDetails.innerHTML = `${songName} - ${songArtist}`; // Set the details on the player
@@ -220,6 +234,8 @@ for (let i = 0; i < songs.length; i++) {
 
     let temp = `<li class="songs">
                         <div class="song-contain">
+                            <!-- Hidden id for the song -->
+                            <input type="text" value="${songs[i].songId}" class="song-id" hidden>
                             <!-- Audio source for the song -->
                             <audio src="songs/${songs[i].songSrc}">Check yo browser</audio>
                             <!-- Album art of the song -->
@@ -250,11 +266,14 @@ songsList.forEach((indieSong) => {
     indieSong.addEventListener('click',(e) => {
         // Open the music player as the user hit the song ASAP
         openPlayer();
+        let songId = indieSong.querySelector('.song-id').value;
         let imgSrc = indieSong.querySelector('.album-art img').src; // Album img source
         let songSrc = indieSong.querySelector('audio').src; // Song's source
         let songName = indieSong.querySelector('.song-details .name').textContent; // Get the song's name
         let songArtist = indieSong.querySelector('.song-details .artist').textContent; // Get the song's artist
-        playThisSong(songSrc,imgSrc,songName,songArtist); // Calling the function
+        indieSong.classList.add('selected');
+        playThisSong(songId,songSrc,imgSrc,songName,songArtist); // Calling the function
+
     });
 })
 
@@ -278,4 +297,32 @@ playerCloseBtn.addEventListener('click',(e) => {
     closePlayer();
     // Stop the song
     song.pause();
+    // Remove the current highlighted song
+    songsList.forEach((indieSong) => {
+        indieSong.classList.remove('selected');
+    })
 });
+
+// Highilght the currently playing song
+const currentSelection = (songPosition) => {
+    songsList.forEach((indieSong) => {
+        indieSong.classList.remove('selected');
+    })
+
+    songsList[songPosition].classList.add('selected');
+    // console.log(songsList[songPosition]);
+}
+
+// const setSelection = (songPosition) => {
+//     songsList.forEach((indieSong) => {
+        
+//         let currentSong = indieSong.querySelector('.song-id');
+//         let currentSongPos = currentSong.value;
+
+//         if(currentSongPos === songPosition)
+//         {
+//             // indieSong.
+//             console.log(currentSong);
+//         }
+//     })
+// }
