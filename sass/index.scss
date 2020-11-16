@@ -275,11 +275,12 @@ html,body
     position:fixed;
     left:0;
     right:0;
+    bottom:15px;
     height:7rem;
-    bottom:1rem;
     border-radius:20px;
     transform:translateY(10rem);
     opacity:0;
+    background:rgba($primary-color,0.9);
     pointer-events:none;
     display:flex;
     align-items:center;
@@ -318,7 +319,7 @@ html,body
             .song-details
             {
                 position:absolute;
-                bottom:-35px;
+                bottom:1rem;
                 width:80%;
                 // background:red;
                 overflow:hidden;
@@ -498,3 +499,5 @@ html,body
     
     
 }
+
+@import 'media';

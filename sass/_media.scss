@@ -1,0 +1,50 @@
+@import 'variables';
+@import 'utilities';
+
+@media(min-width:768px)
+{
+
+    .music-player
+    {
+        .container
+        {
+            .song-art
+            {
+                // position:absolute;
+
+                height:6rem;
+                width:6rem;
+                // border-radius:none;
+
+                img
+                {
+                    // position:absolute;
+                    // top:0;
+                    // left:0;
+                    // bottom:0;
+                    // right:0;
+
+                }
+
+                .song-details
+                {
+                    // align-self:flex-end;
+                    // // position;
+                    top:30px;
+                    right:-100px;
+                    width:100%;
+
+                    .song-name
+                    {
+                        .lead-2
+                        {
+                            font-size:1.3rem;
+                        }
+                    }
+                }
+            }
+
+        }
+
+    }
+}
