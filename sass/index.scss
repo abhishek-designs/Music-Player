@@ -1,14 +1,6 @@
 @import 'variables';
 @import 'utilities';
 
-html,body
-{
-    font-family:$secondary-font;
-    line-height:1.4;
-    background:$dark-color;
-    color:$light-color;
-}
-
 // Intro styling
 .intro
 {

@@ -9,6 +9,14 @@
     box-sizing:border-box;
 }
 
+html,body
+{
+    font-family:$secondary-font;
+    line-height:1.4;
+    background:$dark-color;
+    color:$light-color;
+}
+
 // Default stylings
 a
 {
@@ -39,7 +47,7 @@ p
 {
     &-1
     {   font-weight:700;
-        font-size:2rem;
+        font-size:2.5rem;
     }
     &-2
     {
@@ -57,7 +65,7 @@ p
 {
     &-1
     {
-        font-size:1rem;
+        font-size:1.2rem;
     }
     &-2
     {

@@ -3,6 +3,7 @@ const navbar = document.querySelector('#navbar-m');
 const toggler = navbar.querySelector('.toggler');
 const songsContain = document.querySelector('#main-section');
 const navLinks = navbar.querySelector('.nav-links');
+const links = navLinks.querySelectorAll('li');
 
 toggler.addEventListener('click',(e) => {
 
@@ -24,5 +25,14 @@ const closeNav = () => {
     songsContain.style.marginLeft = 0;
 }
 
+links.forEach((link) => {
+    link.addEventListener('click',(e) => {
+        let linkIcon = link.querySelector('i');
+        if(!linkIcon.classList.contains('current'))
+        {
+            toggler.checked = false;
+        }
+    })
+})
 // console.log(checked);
 

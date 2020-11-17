@@ -1,0 +1,21 @@
+@import 'variables';
+@import 'utilities';
+
+#about
+{
+    .container
+    {
+        height:100vh;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+
+        .content
+        {
+            text-align:center;
+        }
+    }
+}
+
+@import 'media';
