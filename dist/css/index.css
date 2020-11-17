@@ -286,7 +286,7 @@ html, body {
         border-radius: 50%; }
       .music-player .container .song-art .song-details {
         position: absolute;
-        bottom: 1rem;
+        bottom: -2rem;
         width: 80%;
         overflow: hidden; }
         .music-player .container .song-art .song-details .song-name {
