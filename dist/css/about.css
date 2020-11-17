@@ -246,6 +246,8 @@ p {
   -webkit-tap-highlight-color: transparent; }
 
 @media (min-width: 768px) {
+  .intro-content .head-1 {
+    font-size: 6rem; }
   .music-player .container .song-art {
     height: 6rem;
     width: 6rem; }

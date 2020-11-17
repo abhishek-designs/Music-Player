@@ -129,16 +129,16 @@ p {
   display: flex;
   justify-content: center;
   align-items: center; }
-  .intro .intro-content .head-1 {
+  .intro-content .head-1 {
     display: block;
     font-size: 4rem;
     background: #2F2F2F;
     overflow: hidden; }
-    .intro .intro-content .head-1:nth-child(1) .text-content {
+    .intro-content .head-1:nth-child(1) .text-content {
       transform: translateX(-100%); }
-    .intro .intro-content .head-1:nth-child(2) .text-content {
+    .intro-content .head-1:nth-child(2) .text-content {
       transform: translateX(100%); }
-    .intro .intro-content .head-1 .text-content {
+    .intro-content .head-1 .text-content {
       display: block; }
   .intro-slider {
     position: fixed;
@@ -498,6 +498,8 @@ p {
   -webkit-tap-highlight-color: transparent; }
 
 @media (min-width: 768px) {
+  .intro-content .head-1 {
+    font-size: 6rem; }
   .music-player .container .song-art {
     height: 6rem;
     width: 6rem; }

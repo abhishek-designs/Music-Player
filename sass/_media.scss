@@ -3,6 +3,17 @@
 
 @media(min-width:768px)
 {
+    .intro
+    {
+        &-content
+        {
+            .head-1
+            {
+                font-size:6rem;
+            }
+
+        }
+    }
 
     .music-player
     {
